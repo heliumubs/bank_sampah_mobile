@@ -3,7 +3,7 @@ import '../model/offers_card_model.dart';
 List<OffersModel> offersModel = [
   OffersModel(
     oid: 1,
-    imgUrl: 'assets/bkash_panda.jpgs',
+    imgUrl: 'assets/bkash_panda.jpg',
     titleOne: 'Payment Your Bill',
     titleTwo: 'BDT 200 Gift',
     NotifyTitleTwo:
@@ -14,7 +14,7 @@ List<OffersModel> offersModel = [
   ),
   OffersModel(
     oid: 2,
-    imgUrl: 'assets/bkash_empy.jpgs',
+    imgUrl: 'assets/bkash_empy.jpg',
     titleOne: 'BDT 400 Cashback',
     titleTwo: 'Daraz',
     NotifyTitleTwo:
@@ -25,7 +25,7 @@ List<OffersModel> offersModel = [
   ),
   OffersModel(
     oid: 3,
-    imgUrl: 'assets/bkash_panda.jpgs',
+    imgUrl: 'assets/bkash_panda.jpg',
     titleOne: 'BDT 200 Discount',
     titleTwo: 'Akash DTH',
     NotifyTitleTwo: '',

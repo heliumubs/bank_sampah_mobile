@@ -8,7 +8,7 @@ class BigBannerWidget extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(8),
       child: Image(
-        image: AssetImage('assets/big_banner.jpgs'),
+        image: AssetImage('assets/big_banner.jpg'),
       ),
     );
   }
