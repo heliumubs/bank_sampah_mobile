@@ -1,4 +1,5 @@
 import 'package:bkash_ui/controllers/login.dart';
+import 'package:bkash_ui/widgets/bottom_navigation_widget.dart';
 import 'package:flutter/material.dart';
 
 class RegisterScreen extends StatelessWidget {
@@ -81,8 +82,11 @@ class RegisterScreen extends StatelessWidget {
                 SizedBox(height: 20.0),
                 ElevatedButton(
                   onPressed: () {
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(builder: (_) => BottomNavigation()),
+                    // );
                     // Aksi login di sini
-                    String url = 'http://10.0.2.2:8000/api/register';
                     Map<String, dynamic> data = {
                       'name': _nameController.text,
                       'email': _usernameController.text,
@@ -90,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                       'role': 'User',
                     };
 
-                    registerAndSaveData(url, data);
+                    registerAndSaveData(data);
                   },
                   style: ElevatedButton.styleFrom(
                     padding:

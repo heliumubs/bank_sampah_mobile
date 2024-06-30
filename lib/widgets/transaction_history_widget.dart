@@ -38,9 +38,9 @@ class _TransactionWidgetState extends State<TransactionWidget> {
           tTime: "8:17 AM 21/08/2022",
           tCode: 1),
       TransactionModel(
-          tId: "QWEJCNDJM",
+          tId: "QWEJCND",
           tImage: "assets/airtel.jpg",
-          tType: "Postpaid Bill",
+          tType: "Postpaid",
           tName: "Airtel Biller",
           tAmt: "- ৳400",
           tTime: "11:22 PM 19/08/2022",
@@ -48,7 +48,7 @@ class _TransactionWidgetState extends State<TransactionWidget> {
       TransactionModel(
           tId: "9JGHBNBDC",
           tImage: "assets/cash_out.jpg",
-          tType: "Received Money",
+          tType: "Received",
           tName: "Imtiaz",
           tAmt: "+ ৳500",
           tTime: "9:20 AM 18/08/2022",
@@ -155,16 +155,23 @@ class _TransactionWidgetState extends State<TransactionWidget> {
                           ),
                         ),
                         Padding(
-                          padding: const EdgeInsets.all(4.0),
+                          padding: const EdgeInsets.all(2.0),
                           child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.end,
+                            crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text(item.tAmt, style: colorSystem(item.tCode)),
+                              Text(
+                                item.tAmt,
+                                style: colorSystem(item.tCode),
+                                overflow: TextOverflow
+                                    .ellipsis, // Menambahkan overflow ellipsis
+                              ),
                               Text(
                                 item.tTime,
                                 style: TextStyle(
                                   fontWeight: FontWeight.w300,
                                 ),
+                                overflow: TextOverflow
+                                    .ellipsis, // Menambahkan overflow ellipsis
                               ),
                             ],
                           ),

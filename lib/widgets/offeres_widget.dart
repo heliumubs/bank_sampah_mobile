@@ -32,22 +32,22 @@ class _MyBkashWidgetState extends State<OffersWidget> {
                     'Berita',
                     style: TextStyle(fontWeight: FontWeight.w500),
                   ),
-                  Text(
-                    'Lihat Semua',
-                    style: TextStyle(
-                        color: Colors.pink, fontWeight: FontWeight.w500),
-                  ),
+                  // Text(
+                  //   'Lihat Semua',
+                  //   style: TextStyle(
+                  //       color: Colors.pink, fontWeight: FontWeight.w500),
+                  // ),
                 ],
               ),
             ),
           ),
           Container(
-              width: 800,
+              width: 900,
               padding: EdgeInsets.all(2),
               decoration: BoxDecoration(
                 border: Border.all(width: 0.2, color: Colors.grey),
               ),
-              height: 280,
+              height: 290,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ListView.builder(

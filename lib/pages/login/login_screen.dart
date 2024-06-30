@@ -1,4 +1,5 @@
-import 'package:bkash_ui/pages/login/register.dart';
+import 'package:bkash_ui/pages/login/register_screen.dart';
+import 'package:bkash_ui/widgets/bottom_navigation_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -64,6 +65,10 @@ class LoginScreen extends StatelessWidget {
                 ElevatedButton(
                   onPressed: () {
                     // Aksi login di sini
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (_) => BottomNavigation()),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     padding:

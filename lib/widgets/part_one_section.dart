@@ -51,7 +51,7 @@ class _PartOneHomeState extends State<PartOneHome> {
   @override
   Widget build(BuildContext context) {
     double containerHeight =
-        isExpanded ? 350 : 240; // Adjust the heights as needed
+        isExpanded ? 450 : 240; // Adjust the heights as needed
     return Container(
       height: containerHeight,
       padding: EdgeInsets.all(0.0), // Add padding for the shadow effect
@@ -63,7 +63,7 @@ class _PartOneHomeState extends State<PartOneHome> {
           children: [
             InkWell(
               child: Padding(
-                padding: const EdgeInsets.fromLTRB(10, 15, 10, 0),
+                padding: const EdgeInsets.fromLTRB(5, 10, 10, 0),
                 child: GridView.builder(
                   physics:
                       NeverScrollableScrollPhysics(), //cannot scroll the gridview section
@@ -84,16 +84,16 @@ class _PartOneHomeState extends State<PartOneHome> {
                   itemCount: menuodel.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
-                    mainAxisSpacing: 18,
-                    crossAxisSpacing: 18,
+                    mainAxisSpacing: 20,
+                    crossAxisSpacing: 20,
                   ),
                 ),
               ),
             ),
             if (isExpanded)
               Positioned(
-                top: 300.0,
-                right: 150,
+                top: 400.0,
+                right: 130,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors
@@ -110,7 +110,7 @@ class _PartOneHomeState extends State<PartOneHome> {
             else
               Positioned(
                 top: 190.0,
-                right: 150,
+                right: 130,
                 child: Container(
                   decoration: BoxDecoration(
                     boxShadow: [

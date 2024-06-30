@@ -87,7 +87,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                               AnimatedOpacity(
                                   opacity: _isBalanceShown ? 1 : 0,
                                   duration: Duration(milliseconds: 500),
-                                  child: Text('৳ 8100.25',
+                                  child: Text('Rp . 200.000',
                                       style: TextStyle(
                                           color: Color(0xFFE11471),
                                           fontSize: 14))),
@@ -117,7 +117,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       child: const FittedBox(
-                                          child: Text('Swap',
+                                          child: Text('Tap',
                                               style: TextStyle(
                                                   color: Colors.white,
                                                   fontSize: 17)))))

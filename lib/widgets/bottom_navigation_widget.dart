@@ -22,24 +22,24 @@ class _BottomNavigationState extends State<BottomNavigation> {
         FABBottomAppBarItem(
             activeIcon: Icon(
               Icons.home,
-              size: 33,
+              size: 30,
               color: Color(0xFFE11471),
             ),
             inActiveIcon: Icon(
               Icons.home,
-              size: 33,
+              size: 30,
               color: Colors.black26,
             ),
             text: 'Home'),
         FABBottomAppBarItem(
             activeIcon: Icon(
               Icons.insert_comment,
-              size: 33,
+              size: 30,
               color: Color(0xFFE11471),
             ),
             inActiveIcon: Icon(
               Icons.insert_comment,
-              size: 33,
+              size: 30,
               color: Colors.black26,
             ),
             text: 'Informasi'),
