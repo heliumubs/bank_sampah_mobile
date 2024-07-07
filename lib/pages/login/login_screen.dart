@@ -1,9 +1,13 @@
+// import 'package:bkash_ui/controllers/login.dart';
+import 'package:bkash_ui/controllers/login.dart';
 import 'package:bkash_ui/pages/login/register_screen.dart';
 import 'package:bkash_ui/widgets/bottom_navigation_widget.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatelessWidget {
   @override
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
@@ -47,6 +51,7 @@ class LoginScreen extends StatelessWidget {
                     ),
                     prefixIcon: Icon(Icons.email),
                   ),
+                  controller: _usernameController,
                 ),
                 SizedBox(height: 20.0),
                 TextField(
@@ -60,15 +65,23 @@ class LoginScreen extends StatelessWidget {
                     ),
                     prefixIcon: Icon(Icons.lock),
                   ),
+                  controller: _passwordController,
                 ),
                 SizedBox(height: 20.0),
                 ElevatedButton(
                   onPressed: () {
                     // Aksi login di sini
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (_) => BottomNavigation()),
-                    );
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(builder: (_) => BottomNavigation()),
+                    // );
+                    Map<String, dynamic> data = {
+                      'email': _usernameController.text,
+                      'password': _passwordController.text,
+                      'role': 'User',
+                    };
+
+                    loginAndSaveData(data, context);
                   },
                   style: ElevatedButton.styleFrom(
                     padding:

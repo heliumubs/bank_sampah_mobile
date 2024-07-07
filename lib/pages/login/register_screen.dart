@@ -94,7 +94,7 @@ class RegisterScreen extends StatelessWidget {
                       'role': 'User',
                     };
 
-                    registerAndSaveData(data);
+                    registerAndSaveData(data, context);
                   },
                   style: ElevatedButton.styleFrom(
                     padding:

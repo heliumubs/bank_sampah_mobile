@@ -1,7 +1,10 @@
+import 'dart:convert';
+
 import 'package:bkash_ui/pages/SendMoney_Page.dart';
 import 'package:bkash_ui/pages/inbox_page.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../data/home_page_first_part_data.dart';
 
@@ -14,11 +17,19 @@ class PartOneHome extends StatefulWidget {
 
 class _PartOneHomeState extends State<PartOneHome> {
   bool isExpanded = false;
+  String? role;
 //see more toggle
   void toggleExpansion() {
     setState(() {
       isExpanded = !isExpanded;
     });
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadRole();
   }
 
   //loading part
@@ -45,6 +56,21 @@ class _PartOneHomeState extends State<PartOneHome> {
         context,
         MaterialPageRoute(builder: (context) => SendMoneyPage()),
       );
+    });
+  }
+
+  Future<void> _loadRole() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      String? userDataString = prefs.getString('userData');
+      if (userDataString != null) {
+        Map<String, dynamic> userData = jsonDecode(userDataString);
+        setState(() {
+          role = userData['data']['role'];
+        });
+      } else {
+        role = '';
+      }
     });
   }
 
@@ -77,11 +103,15 @@ class _PartOneHomeState extends State<PartOneHome> {
                         // You can add similar navigation logic for other items here
                       },
                       child: Container(
-                        child: menuodel[index],
+                        child: role == 'admin'
+                            ? menuodelAdmin[index]
+                            : menuodelUser[index],
                       ),
                     );
                   },
-                  itemCount: menuodel.length,
+                  itemCount: role == 'admin'
+                      ? menuodelAdmin.length
+                      : menuodelUser.length,
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisSpacing: 20,

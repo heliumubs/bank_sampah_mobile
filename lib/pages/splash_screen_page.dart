@@ -24,9 +24,9 @@ class _SplashScreenPageState extends State<SplashScreenPage>
     await Future.delayed(Duration(seconds: 4));
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    bool isLoggedIn = prefs.getBool('isLoggedIn') ?? false;
+    String? userData = prefs.getString('userData');
 
-    if (isLoggedIn) {
+    if (userData != null) {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => BottomNavigation()),
       );
