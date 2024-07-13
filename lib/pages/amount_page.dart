@@ -37,7 +37,7 @@ class AmmountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFE11471),
+        backgroundColor: Color.fromARGB(255, 11, 226, 65),
         toolbarHeight: 65,
         title: Center(
           child: Text(
@@ -144,7 +144,7 @@ class AmmountPage extends StatelessWidget {
                               style: TextStyle(
                                   fontSize: 32,
                                   fontWeight: FontWeight.bold,
-                                  color: Color(0xFFE11471)),
+                                  color: Color.fromARGB(255, 11, 226, 65)),
                               decoration: InputDecoration(
                                 border: InputBorder.none,
                                 hintText: '৳0',
@@ -217,7 +217,7 @@ class AmmountPage extends StatelessWidget {
                     Text(
                       'Add this number to my Priyo list',
                       style: TextStyle(
-                          color: Color(0xFFE11471),
+                          color: Color.fromARGB(255, 11, 226, 65),
                           fontWeight: FontWeight.w500,
                           fontSize: 15),
                     )

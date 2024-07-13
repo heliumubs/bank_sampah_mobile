@@ -16,14 +16,14 @@ class _BottomNavigationState extends State<BottomNavigation> {
   @override
   Widget build(BuildContext context) {
     return CurvedNavBar(
-      activeColor: Color(0xFFE11471),
+      activeColor: Color.fromARGB(255, 11, 226, 65),
       inActiveColor: Colors.black45,
       appBarItems: [
         FABBottomAppBarItem(
             activeIcon: Icon(
               Icons.home,
               size: 30,
-              color: Color(0xFFE11471),
+              color: Color.fromARGB(255, 11, 226, 65),
             ),
             inActiveIcon: Icon(
               Icons.home,
@@ -35,7 +35,7 @@ class _BottomNavigationState extends State<BottomNavigation> {
             activeIcon: Icon(
               Icons.insert_comment,
               size: 30,
-              color: Color(0xFFE11471),
+              color: Color.fromARGB(255, 11, 226, 65),
             ),
             inActiveIcon: Icon(
               Icons.insert_comment,

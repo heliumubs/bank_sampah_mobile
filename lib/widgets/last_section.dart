@@ -44,12 +44,13 @@ class _LastSectionWidgetState extends State<LastSectionWidget> {
                 ElevatedButton(
                   child: Text(
                     'Check Details',
-                    style: TextStyle(color: Colors.pink),
+                    style: TextStyle(color: Color.fromARGB(255, 11, 226, 65)),
                   ),
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.white,
                     side: BorderSide(
-                        color: Colors.pink, width: 1), // Add border here
+                        color: Color.fromARGB(255, 11, 226, 65),
+                        width: 1), // Add border here
                   ),
                   onPressed: () {},
                 ),

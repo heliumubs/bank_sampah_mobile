@@ -59,7 +59,7 @@ class _AnimatedButtonState extends State<AnimatedButton>
                   painter: ArcShapePainter(
                     progress: animation.value,
                     radius: MediaQuery.of(context).size.width,
-                    color: Color(0xFFE11471),
+                    color: Color.fromARGB(255, 11, 226, 65),
                     strokeWidth: 6,
                   ),
                   //Logo and text

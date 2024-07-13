@@ -11,7 +11,7 @@ class InboxPage extends StatelessWidget {
       appBar: AppBar(
         automaticallyImplyLeading: false,
         toolbarHeight: 65,
-        backgroundColor: Colors.pink,
+        backgroundColor: Color.fromARGB(255, 11, 226, 65),
         title: Center(
             child: Text(
           'Inbox',

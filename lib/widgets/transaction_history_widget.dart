@@ -31,7 +31,7 @@ class _TransactionWidgetState extends State<TransactionWidget> {
           tCode: 2),
       TransactionModel(
           tId: "X7GDHSMNK",
-          tImage: "assets/add_money.jpg",
+          tImage: "assets/logo/koin.png",
           tType: "Cash in",
           tName: "RK Telecom",
           tAmt: "+500",

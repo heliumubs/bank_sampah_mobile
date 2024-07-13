@@ -31,8 +31,8 @@ class TabbarWidget extends StatelessWidget {
               ),
             ],
             tabBarProperties: TabBarProperties(
-              indicatorColor: Colors.pink,
-              labelColor: Colors.pink,
+              indicatorColor: Color.fromARGB(255, 11, 226, 65),
+              labelColor: Color.fromARGB(255, 11, 226, 65),
               unselectedLabelColor: Colors.grey[400],
             ),
             views: [NotificationPage(), TransactionPage()],

@@ -42,7 +42,7 @@ var myBkash = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/add_money.jpg'),
+        child: Image.asset('assets/logo/koin.jpg'),
       ),
       Text('Add Money')
     ],

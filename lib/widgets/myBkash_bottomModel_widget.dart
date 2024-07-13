@@ -23,7 +23,8 @@ class BottomModelWidget extends StatelessWidget {
                 Text(
                   'See More',
                   style: TextStyle(
-                      color: Colors.pink, fontWeight: FontWeight.w500),
+                      color: Color.fromARGB(255, 11, 226, 65),
+                      fontWeight: FontWeight.w500),
                 ),
               ],
             ),

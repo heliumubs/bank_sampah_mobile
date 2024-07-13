@@ -24,7 +24,7 @@ class WidgetOfConfirmation extends StatelessWidget {
                   children: [
                     Text('Your',
                         style: TextStyle(
-                            color: Color(0xFFE11471),
+                            color: Color.fromARGB(255, 11, 226, 65),
                             fontSize: 18,
                             fontWeight: FontWeight.w500)),
                     SizedBox(
@@ -32,7 +32,7 @@ class WidgetOfConfirmation extends StatelessWidget {
                     ),
                     Text('Send Mony',
                         style: TextStyle(
-                            color: Color(0xFFE11471),
+                            color: Color.fromARGB(255, 11, 226, 65),
                             fontSize: 20,
                             fontWeight: FontWeight.bold)),
                     SizedBox(
@@ -40,7 +40,7 @@ class WidgetOfConfirmation extends StatelessWidget {
                     ),
                     Text('is',
                         style: TextStyle(
-                            color: Color(0xFFE11471),
+                            color: Color.fromARGB(255, 11, 226, 65),
                             fontSize: 18,
                             fontWeight: FontWeight.w500)),
                   ],
@@ -242,7 +242,8 @@ class WidgetOfConfirmation extends StatelessWidget {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.white,
-                        side: BorderSide(color: Colors.pink, width: 1),
+                        side: BorderSide(
+                            color: Color.fromARGB(255, 11, 226, 65), width: 1),
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(
                               40), // Optional: Add rounded corners
@@ -253,13 +254,15 @@ class WidgetOfConfirmation extends StatelessWidget {
                         children: [
                           Icon(
                             Icons.phone_callback, // Choose your icon
-                            color: Colors.pink,
+                            color: Color.fromARGB(255, 11, 226, 65),
                           ),
                           SizedBox(
                               width: 8), // Add spacing between icon and text
                           Text(
                             'Call',
-                            style: TextStyle(color: Colors.pink, fontSize: 17),
+                            style: TextStyle(
+                                color: Color.fromARGB(255, 11, 226, 65),
+                                fontSize: 17),
                           ),
                         ],
                       ),
@@ -284,7 +287,7 @@ class WidgetOfConfirmation extends StatelessWidget {
               alignment: Alignment.bottomCenter,
               child: Container(
                 height: 54,
-                color: Colors.pink,
+                color: Color.fromARGB(255, 11, 226, 65),
                 child: Padding(
                   padding: const EdgeInsets.all(10.0),
                   child: Row(

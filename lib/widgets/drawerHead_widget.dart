@@ -26,7 +26,7 @@ class DrawerWidget extends StatelessWidget {
                       Text(
                         'Akun',
                         style: TextStyle(
-                          color: Color(0xFFE11471),
+                          color: Color.fromARGB(255, 11, 226, 65),
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
                         ),
@@ -36,14 +36,17 @@ class DrawerWidget extends StatelessWidget {
                         onPressed: () {},
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
-                          side: BorderSide(color: Colors.pink, width: 1),
+                          side: BorderSide(
+                              color: Color.fromARGB(255, 11, 226, 65),
+                              width: 1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
                           ),
                         ),
                         child: Text(
                           'Lihat Akun',
-                          style: TextStyle(color: Color(0xFFE11471)),
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 11, 226, 65)),
                         ),
                       ),
                       SizedBox(height: 10), // Menambahkan jarak di bawah button
@@ -53,14 +56,17 @@ class DrawerWidget extends StatelessWidget {
                         },
                         style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.white,
-                          side: BorderSide(color: Colors.pink, width: 1),
+                          side: BorderSide(
+                              color: Color.fromARGB(255, 11, 226, 65),
+                              width: 1),
                           shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(40),
                           ),
                         ),
                         child: Text(
                           'Keluar',
-                          style: TextStyle(color: Color(0xFFE11471)),
+                          style: TextStyle(
+                              color: Color.fromARGB(255, 11, 226, 65)),
                         ),
                       ),
                     ],

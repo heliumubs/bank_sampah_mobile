@@ -37,7 +37,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
         automaticallyImplyLeading: false,
         shape: CurvedAppBarShape(),
         toolbarHeight: 70,
-        backgroundColor: Color(0xFFE11471),
+        backgroundColor: Color.fromARGB(255, 11, 226, 65),
         key: appBar_key,
         flexibleSpace: SafeArea(
           child: Padding(
@@ -52,7 +52,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                   child: CircleAvatar(
                     radius: 28.0,
                     backgroundColor: Colors.grey[200],
-                    backgroundImage: const AssetImage('assets/rafi.jpg'),
+                    backgroundImage: const AssetImage('assets/logo/akun.png'),
                   ),
                 ),
                 const SizedBox(width: 10.0),
@@ -89,7 +89,8 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                   duration: Duration(milliseconds: 500),
                                   child: Text('Rp . 200.000',
                                       style: TextStyle(
-                                          color: Color(0xFFE11471),
+                                          color:
+                                              Color.fromARGB(255, 11, 226, 65),
                                           fontSize: 14))),
 
                               //Balance
@@ -98,7 +99,8 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                   duration: const Duration(milliseconds: 300),
                                   child: const Text('Lihat Nominal',
                                       style: TextStyle(
-                                          color: Color(0xFFE11471),
+                                          color:
+                                              Color.fromARGB(255, 11, 226, 65),
                                           fontSize: 14,
                                           fontWeight: FontWeight.w800))),
 
@@ -113,7 +115,8 @@ class AppBarWidgetState extends State<AppBarWidget> {
                                       // padding: const EdgeInsets.only(bottom: 4),
                                       alignment: Alignment.center,
                                       decoration: BoxDecoration(
-                                          color: Color(0xFFE11471),
+                                          color:
+                                              Color.fromARGB(255, 11, 226, 65),
                                           borderRadius:
                                               BorderRadius.circular(50)),
                                       child: const FittedBox(
@@ -151,7 +154,9 @@ class AppBarWidgetState extends State<AppBarWidget> {
                 }
               },
               child: SizedBox(
-                  width: 34, height: 34, child: Image.asset('assets/logo.png')),
+                  width: 34,
+                  height: 34,
+                  child: Image.asset('assets/logo/logo.png')),
             ),
           )
         ],

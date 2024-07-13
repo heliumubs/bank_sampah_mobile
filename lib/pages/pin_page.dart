@@ -9,7 +9,7 @@ class ReferencePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFE11471),
+        backgroundColor: Color.fromARGB(255, 11, 226, 65),
         toolbarHeight: 65,
         title: Center(
           child: Text(
@@ -184,7 +184,7 @@ class ReferencePage extends StatelessWidget {
                   children: [
                     Icon(
                       Icons.lock,
-                      color: Color(0xFFE11471),
+                      color: Color.fromARGB(255, 11, 226, 65),
                       size: 30,
                     ),
                     Expanded(

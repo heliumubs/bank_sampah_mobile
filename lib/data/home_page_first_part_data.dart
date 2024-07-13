@@ -4,10 +4,12 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/send_money.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/tentangsampah.png'),
       ),
       Padding(
-          padding: const EdgeInsets.all(1.0), // Menambahkan padding
+          padding: const EdgeInsets.all(0), // Menambahkan padding
           child: Text(
             'Tentang Sampah',
             overflow: TextOverflow.ellipsis,
@@ -17,20 +19,27 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/mobile_recharge.jpg'),
+        width: 100, // Set the width you want
+        height: 100, // Set the height you want
+        child: Image.asset('assets/logo/jenis_sampah.png'),
       ),
       Padding(
-          padding: const EdgeInsets.all(1.0), // Menambahkan padding
-          child: Text(
-            'Jenis Sampah',
-            overflow: TextOverflow.ellipsis,
-          )),
+        padding:
+            const EdgeInsets.all(8.0), // Adjusted padding for better spacing
+        child: Text(
+          'Jenis Sampah',
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
     ],
   ),
+
   Column(
     children: [
       Container(
-        child: Image.asset('assets/cash_out.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/pengguna.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -43,7 +52,9 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/make_payment.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/transaksi.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -56,7 +67,9 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/add_money.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/lokasi.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -69,7 +82,9 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/pay_bill.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/akun.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -82,7 +97,9 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/savings.png'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/koin.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -95,7 +112,9 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/loan-removebg-preview.png'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/penukaran.png'),
       ),
       Padding(
         padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -109,7 +128,9 @@ var menuodelAdmin = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/bank_to_cash-removebg-preview.png'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/wet.png'),
       ),
       Padding(
         padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -123,7 +144,7 @@ var menuodelAdmin = [
   // Column(
   //   children: [
   //     Container(
-  //       child: Image.asset('assets/bangla_qr-removebg-preview (1).png'),
+  //       child: Image.asset('assets/logo/bangla_qr-removebg-preview (1).png'),
   //     ),
   //     Text('Bangla QR')
   //   ],
@@ -133,7 +154,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/send_money.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/koin.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -146,7 +169,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/mobile_recharge.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/sampah.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -159,7 +184,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/make_payment.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/transaksi.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -172,7 +199,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/add_money.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/lokasi.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -185,7 +214,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/pay_bill.jpg'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/akun.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -198,7 +229,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/savings.png'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/koin.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -211,7 +244,9 @@ var menuodelUser = [
   Column(
     children: [
       Container(
-        child: Image.asset('assets/bank_to_cash-removebg-preview.png'),
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/wet.png'),
       ),
       Padding(
         padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -225,7 +260,7 @@ var menuodelUser = [
   // Column(
   //   children: [
   //     Container(
-  //       child: Image.asset('assets/bangla_qr-removebg-preview (1).png'),
+  //       child: Image.asset('assets/logo/bangla_qr-removebg-preview (1).png'),
   //     ),
   //     Text('Bangla QR')
   //   ],

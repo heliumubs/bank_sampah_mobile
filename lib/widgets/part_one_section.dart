@@ -115,7 +115,7 @@ class _PartOneHomeState extends State<PartOneHome> {
                   gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                     crossAxisCount: 3,
                     mainAxisSpacing: 20,
-                    crossAxisSpacing: 20,
+                    crossAxisSpacing: 10,
                   ),
                 ),
               ),
@@ -134,7 +134,8 @@ class _PartOneHomeState extends State<PartOneHome> {
                   ),
                   onPressed: toggleExpansion,
                   child: Text(isExpanded ? 'Sembunyikan' : 'Lihat Semua',
-                      style: TextStyle(color: Colors.pink)),
+                      style:
+                          TextStyle(color: Color.fromARGB(255, 11, 226, 65))),
                 ),
               )
             else
@@ -161,7 +162,8 @@ class _PartOneHomeState extends State<PartOneHome> {
                     ),
                     onPressed: toggleExpansion,
                     child: Text(isExpanded ? 'Sembunyikan' : 'Lihat Semua',
-                        style: TextStyle(color: Colors.pink)),
+                        style:
+                            TextStyle(color: Color.fromARGB(255, 11, 226, 65))),
                   ),
                 ),
               ),

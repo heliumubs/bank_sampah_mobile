@@ -87,7 +87,7 @@ class _BannerWidgetState extends State<BannerWidget> {
                       Icons.circle_rounded,
                       size: 10,
                       color: currentPage == index
-                          ? Colors.pink
+                          ? Color.fromARGB(255, 11, 226, 65)
                           : Colors.grey.shade400,
                     ),
                   )),

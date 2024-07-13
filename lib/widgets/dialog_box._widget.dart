@@ -25,7 +25,7 @@ class WidgetOfDialogBox extends StatelessWidget {
                   child: Icon(
                     Icons.close_sharp,
                     size: 30,
-                    color: Colors.pink,
+                    color: Color.fromARGB(255, 11, 226, 65),
                   )),
             ),
           )
@@ -44,7 +44,7 @@ class WidgetOfDialogBox extends StatelessWidget {
                         Text(
                           "Confirm to",
                           style: TextStyle(
-                              color: Color(0xFFE11471),
+                              color: Color.fromARGB(255, 11, 226, 65),
                               fontSize: 18,
                               fontWeight: FontWeight.w500),
                         ),
@@ -53,7 +53,7 @@ class WidgetOfDialogBox extends StatelessWidget {
                         ),
                         Text("Send Money",
                             style: TextStyle(
-                                color: Color(0xFFE11471),
+                                color: Color.fromARGB(255, 11, 226, 65),
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold)),
                       ],
