@@ -7,6 +7,9 @@ class TransactionPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TransactionWidget();
+    // return TransactionWidget();
+    return Center(
+      child: Text("masih Dalam Pengembangan"),
+    );
   }
 }

@@ -1,7 +1,10 @@
+import 'package:bkash_ui/baseurl.dart';
+import 'package:bkash_ui/pages/koin/koin_model.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(KoinPage());
 
 class Coin {
   final int penggunaId;
@@ -17,29 +20,39 @@ class Coin {
   });
 }
 
-class MyApp extends StatelessWidget {
-  final List<Coin> coins = [
-    Coin(
-        penggunaId: 1,
-        jumlah: 100,
-        status: 'Aktif',
-        tglIn: DateTime.parse('2024-07-01')),
-    Coin(
-        penggunaId: 2,
-        jumlah: 200,
-        status: 'Tidak Aktif',
-        tglIn: DateTime.parse('2024-06-30')),
-    Coin(
-        penggunaId: 3,
-        jumlah: 150,
-        status: 'Aktif',
-        tglIn: DateTime.parse('2024-06-29')),
-    Coin(
-        penggunaId: 4,
-        jumlah: 300,
-        status: 'Aktif',
-        tglIn: DateTime.parse('2024-06-28')),
-  ];
+class KoinPage extends StatefulWidget {
+  @override
+  State<KoinPage> createState() => _KoinPageState();
+}
+
+class _KoinPageState extends State<KoinPage> {
+  final Dio _dio = Dio();
+
+  List<KoinModel> coins = [];
+  @override
+  void initState() {
+    super.initState();
+    _fetchCoins();
+  }
+
+  Future<void> _fetchCoins() async {
+    try {
+      final response = await _dio.get('${urllokal}koins');
+      print("=====================koin=========");
+      print(response.data);
+      if (response.statusCode == 200) {
+        // Konversi respons JSON menjadi List<Coin>
+        List<dynamic> coinList = response.data;
+        setState(() {
+          coins = coinList.map((json) => KoinModel.fromJson(json)).toList();
+        });
+      } else {
+        print('Gagal mengambil data koin');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -47,7 +60,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green, // Ubah warna header menjadi hijau
           title: Text('Daftar Koin'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop(); // Kembali ke halaman sebelumnya
+            },
+          ),
         ),
         body: ListView.builder(
           itemCount: coins.length,
@@ -61,7 +81,8 @@ class MyApp extends StatelessWidget {
                     Text('Jumlah: ${coins[index].jumlah}'),
                     Text('Status: ${coins[index].status}'),
                     Text(
-                        'Tanggal Masuk: ${DateFormat('yyyy-MM-dd').format(coins[index].tglIn)}'),
+                      'Tanggal Masuk: ${coins[index].tglIn}',
+                    ),
                   ],
                 ),
                 leading: Icon(Icons.monetization_on),
@@ -72,6 +93,14 @@ class MyApp extends StatelessWidget {
               ),
             );
           },
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: () {
+            // Tambahkan logika untuk kembali ke halaman sebelumnya
+            Navigator.pop(context);
+          },
+          child: Icon(Icons.arrow_back),
+          backgroundColor: Colors.green, // Warna hijau pada button kembali
         ),
       ),
     );

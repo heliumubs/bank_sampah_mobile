@@ -1,6 +1,9 @@
+import 'package:bkash_ui/baseurl.dart';
+import 'package:bkash_ui/pages/sampah/sampah_model.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(SampahPage());
 
 class Sampah {
   final String namaSampah;
@@ -16,33 +19,36 @@ class Sampah {
   });
 }
 
-class MyApp extends StatelessWidget {
-  final List<Sampah> sampahList = [
-    Sampah(
-      namaSampah: 'Plastik',
-      keterangan: 'Sampah plastik seperti botol, kantong plastik, dll.',
-      jenis: 'Anorganik',
-      harga: 500.0,
-    ),
-    Sampah(
-      namaSampah: 'Kertas',
-      keterangan: 'Sampah kertas seperti koran, buku bekas, dll.',
-      jenis: 'Anorganik',
-      harga: 300.0,
-    ),
-    Sampah(
-      namaSampah: 'Sisa Makanan',
-      keterangan: 'Sisa makanan yang tidak habis dikonsumsi.',
-      jenis: 'Organik',
-      harga: 200.0,
-    ),
-    Sampah(
-      namaSampah: 'Botol Kaca',
-      keterangan: 'Sampah botol kaca seperti botol minuman, dll.',
-      jenis: 'Anorganik',
-      harga: 400.0,
-    ),
-  ];
+class SampahPage extends StatefulWidget {
+  @override
+  State<SampahPage> createState() => _SampahPageState();
+}
+
+class _SampahPageState extends State<SampahPage> {
+  List<SampahModel> sampahList = [];
+  final Dio _dio = Dio();
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchSampahs();
+  }
+
+  Future<void> _fetchSampahs() async {
+    try {
+      final response = await _dio.get('${urllokal}sampahs');
+      if (response.statusCode == 200) {
+        List<dynamic> data = response.data;
+        setState(() {
+          sampahList = data.map((json) => SampahModel.fromJson(json)).toList();
+        });
+      } else {
+        print('Gagal mengambil daftar sampah');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +56,14 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green, // Ubah warna header menjadi hijau
           title: Text('Daftar Sampah'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop(); // Kembali ke halaman sebelumnya
+            },
+          ),
         ),
         body: ListView.builder(
           itemCount: sampahList.length,
@@ -64,7 +77,8 @@ class MyApp extends StatelessWidget {
                     Text('Keterangan: ${sampahList[index].keterangan}'),
                     Text('Jenis: ${sampahList[index].jenis}'),
                     Text(
-                        'Harga: Rp ${sampahList[index].harga.toStringAsFixed(2)}'),
+                      'Harga: Rp ${sampahList[index].harga}',
+                    ),
                   ],
                 ),
                 leading: Icon(Icons.delete),

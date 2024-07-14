@@ -1,6 +1,8 @@
 import 'dart:convert';
 import 'package:bkash_ui/baseurl.dart';
 import 'package:bkash_ui/pages/login/login_screen.dart';
+import 'package:bkash_ui/pages/pengguna/pengguna.dart';
+import 'package:bkash_ui/pages/pengguna/tambah_pengguna.dart';
 import 'package:bkash_ui/pages/pin_page.dart';
 import 'package:bkash_ui/widgets/bottom_navigation_widget.dart';
 import 'package:flutter/material.dart';
@@ -83,9 +85,10 @@ Future<void> registerAndSaveData(
       await prefs.setString('userData', jsonEncode(responseData));
 
       print('Data berhasil disimpan ke SharedPreferences');
+
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (_) => BottomNavigation()),
+        MaterialPageRoute(builder: (_) => AddUserPage()),
       );
     } else if (response.statusCode == 422) {
       var responseData = jsonDecode(response.body);

@@ -6,12 +6,15 @@ class NotificationPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.builder(
-        itemCount: 2,
-        scrollDirection: Axis.vertical,
-        shrinkWrap: true,
-        itemBuilder: (context, index) => NotificationWidgets(
-              offerscardIndex: index,
-            ));
+    // return ListView.builder(
+    //     itemCount: 2,
+    //     scrollDirection: Axis.vertical,
+    //     shrinkWrap: true,
+    //     itemBuilder: (context, index) => NotificationWidgets(
+    //           offerscardIndex: index,
+    //         ));
+    return Center(
+      child: Text("masih Dalam Pengembangan"),
+    );
   }
 }

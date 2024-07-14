@@ -1,6 +1,12 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-void main() => runApp(MyApp());
+import 'package:bkash_ui/baseurl.dart';
+import 'package:bkash_ui/pages/lokasi/lokasi_model.dart';
+import 'package:dio/dio.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
+// void main() => runApp(LokasiPage());
 
 class Location {
   final String namaLokasi;
@@ -18,37 +24,55 @@ class Location {
   });
 }
 
-class MyApp extends StatelessWidget {
-  final List<Location> locations = [
-    Location(
-      namaLokasi: 'Taman Kota',
-      alamat: 'Jl. Kebun Raya No.1',
-      latitude: -6.8957643,
-      longitude: 107.6338462,
-      kontak: '081234567890',
-    ),
-    Location(
-      namaLokasi: 'Pusat Daur Ulang',
-      alamat: 'Jl. Merdeka No.2',
-      latitude: -6.914744,
-      longitude: 107.609810,
-      kontak: '081987654321',
-    ),
-    Location(
-      namaLokasi: 'Bank Sampah',
-      alamat: 'Jl. Lingkar Selatan No.3',
-      latitude: -6.90389,
-      longitude: 107.61861,
-      kontak: '082123456789',
-    ),
-    Location(
-      namaLokasi: 'Tempat Pembuangan Akhir',
-      alamat: 'Jl. Ciparay No.4',
-      latitude: -6.931944,
-      longitude: 107.634167,
-      kontak: '082198765432',
-    ),
-  ];
+class LokasiPage extends StatefulWidget {
+  @override
+  State<LokasiPage> createState() => _LokasiPageState();
+}
+
+class _LokasiPageState extends State<LokasiPage> {
+  List<LokasiModel> locations = [];
+  final Dio _dio = Dio();
+  String? role = '';
+  int? id = 0;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchLocations();
+    _loadRole();
+  }
+
+  Future<void> _fetchLocations() async {
+    try {
+      final response = await _dio.get('${urllokal}lokasis');
+      if (response.statusCode == 200) {
+        List<dynamic> data = response.data;
+        setState(() {
+          locations = data.map((json) => LokasiModel.fromJson(json)).toList();
+        });
+      } else {
+        print('Gagal mengambil daftar lokasi');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  Future<void> _loadRole() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      String? userDataString = prefs.getString('userData');
+      if (userDataString != null) {
+        Map<String, dynamic> userData = jsonDecode(userDataString);
+        setState(() {
+          role = userData['data']['role'];
+          id = userData['data']['id'];
+        });
+      } else {
+        role = '';
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +80,25 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green, // Ubah warna header menjadi hijau
           title: Text('Daftar Lokasi'),
+          leading: IconButton(
+            icon: Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pop(); // Kembali ke halaman sebelumnya
+            },
+          ),
+          actions:
+              role != 'User' // Menampilkan tombol aksi hanya jika isAdmin true
+                  ? [
+                      IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: () {
+                          // _showAddTransactionDialog(context);
+                        },
+                      ),
+                    ]
+                  : [],
         ),
         body: ListView.builder(
           itemCount: locations.length,

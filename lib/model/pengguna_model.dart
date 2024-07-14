@@ -1,0 +1,34 @@
+class PenggunaModel {
+  final int id;
+  final String idUser;
+  final String alamat;
+  final String telepon;
+  final String nomorIdentifikasi;
+  final String jenisPengguna;
+  final String createdAt;
+  final String updatedAt;
+
+  PenggunaModel({
+    required this.id,
+    required this.idUser,
+    required this.alamat,
+    required this.telepon,
+    required this.nomorIdentifikasi,
+    required this.jenisPengguna,
+    required this.createdAt,
+    required this.updatedAt,
+  });
+
+  factory PenggunaModel.fromJson(Map<String, dynamic> json) {
+    return PenggunaModel(
+      id: json['id'] ?? 0,
+      idUser: json['id_user'] ?? '',
+      alamat: json['alamat'] ?? '',
+      telepon: json['telepon'] ?? '',
+      nomorIdentifikasi: json['nomor_identifikasi'] ?? '',
+      jenisPengguna: json['jenis_pengguna'] ?? '',
+      createdAt: json['created_at'] ?? '',
+      updatedAt: json['updated_at'] ?? '',
+    );
+  }
+}

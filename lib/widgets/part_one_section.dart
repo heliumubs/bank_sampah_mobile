@@ -1,7 +1,18 @@
 import 'dart:convert';
 
 import 'package:bkash_ui/pages/SendMoney_Page.dart';
+import 'package:bkash_ui/pages/akun/akun_page.dart';
+import 'package:bkash_ui/pages/edukasi_sampah/edukasi_sampah.dart';
 import 'package:bkash_ui/pages/inbox_page.dart';
+import 'package:bkash_ui/pages/jenis_sampah/jenis_sampah.dart';
+import 'package:bkash_ui/pages/koin/koin.dart';
+import 'package:bkash_ui/pages/lokasi/lokasi.dart';
+import 'package:bkash_ui/pages/magot/magot_model.dart';
+import 'package:bkash_ui/pages/magot/magot_page.dart';
+import 'package:bkash_ui/pages/pupuk/pupuk_model.dart';
+import 'package:bkash_ui/pages/pupuk/pupuk_screen.dart';
+import 'package:bkash_ui/pages/sampah/sampah.dart';
+import 'package:bkash_ui/pages/transaksi/transaksi.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -18,6 +29,7 @@ class PartOneHome extends StatefulWidget {
 class _PartOneHomeState extends State<PartOneHome> {
   bool isExpanded = false;
   String? role;
+  int? id;
 //see more toggle
   void toggleExpansion() {
     setState(() {
@@ -33,15 +45,13 @@ class _PartOneHomeState extends State<PartOneHome> {
   }
 
   //loading part
-  void showLoadingAnimation(BuildContext context) {
+  void showLoadingAnimation(BuildContext context, int index, String role) {
     showDialog(
       context: context,
       barrierDismissible: false, // Prevent dismissing the dialog
       builder: (context) {
         return Center(
-          child: Center(
-            child: Image(image: AssetImage('assets/loading.gif')),
-          ),
+          child: Image(image: AssetImage('assets/loading.gif')),
         );
       },
     );
@@ -51,10 +61,91 @@ class _PartOneHomeState extends State<PartOneHome> {
       // Hide the loading animation dialog
       Navigator.of(context).pop();
 
+      // Determine the destination page based on index and role
+      Widget destinationPage;
+      if (role == 'admin') {
+        // Define your admin menu destinations here
+        switch (index) {
+          case 0:
+            destinationPage =
+                EdukasiSampah(); // Example destination for admin index 0
+            break;
+          case 1:
+            destinationPage =
+                JenisSampah(); // Example destination for admin index 1
+            break;
+          case 2:
+            destinationPage =
+                SampahPage(); // Example destination for admin index 1
+            break;
+          case 3:
+            destinationPage =
+                TransaksiPage(); // Example destination for admin index 1
+            break;
+          case 4:
+            destinationPage =
+                LokasiPage(); // Example destination for admin index 1
+            break;
+          case 5:
+            destinationPage = UserDataPage(
+              userData: id.toString(),
+            ); // Example destination for admin index 1
+            break;
+          case 6:
+            destinationPage =
+                KoinPage(); // Example destination for admin index 1
+            break;
+          default:
+            destinationPage = EdukasiSampah(); // Default to EdukasiSampah page
+        }
+      } else {
+        // Define your user menu destinations here
+        switch (index) {
+          case 0:
+            destinationPage =
+                EdukasiSampah(); // Example destination for admin index 0
+            break;
+          case 1:
+            destinationPage =
+                JenisSampah(); // Example destination for admin index 1
+            break;
+          case 2:
+            destinationPage =
+                SampahPage(); // Example destination for admin index 1
+            break;
+          case 3:
+            destinationPage =
+                TransaksiPage(); // Example destination for admin index 1
+            break;
+          case 4:
+            destinationPage =
+                LokasiPage(); // Example destination for admin index 1
+            break;
+          case 5:
+            destinationPage = UserDataPage(
+              userData: id.toString(),
+            ); // Example destination for admin index 1
+            break;
+          case 6:
+            destinationPage =
+                KoinPage(); // Example destination for admin index 1
+            break;
+          case 7:
+            destinationPage =
+                MagotScreen(); // Example destination for admin index 1
+            break;
+          case 8:
+            destinationPage =
+                PupukScreen(); // Example destination for admin index 1
+            break;
+          default:
+            destinationPage = EdukasiSampah(); // Default to EdukasiSampah page
+        }
+      }
       // Navigate to the next page
       Navigator.push(
         context,
-        MaterialPageRoute(builder: (context) => SendMoneyPage()),
+        MaterialPageRoute(builder: (context) => destinationPage),
       );
     });
   }
@@ -67,6 +158,7 @@ class _PartOneHomeState extends State<PartOneHome> {
         Map<String, dynamic> userData = jsonDecode(userDataString);
         setState(() {
           role = userData['data']['role'];
+          id = userData['data']['id'];
         });
       } else {
         role = '';
@@ -77,7 +169,7 @@ class _PartOneHomeState extends State<PartOneHome> {
   @override
   Widget build(BuildContext context) {
     double containerHeight =
-        isExpanded ? 450 : 240; // Adjust the heights as needed
+        isExpanded ? 550 : 240; // Adjust the heights as needed
     return Container(
       height: containerHeight,
       padding: EdgeInsets.all(0.0), // Add padding for the shadow effect
@@ -97,9 +189,7 @@ class _PartOneHomeState extends State<PartOneHome> {
                     return GestureDetector(
                       onTap: () {
                         // Check if the first item is tapped (index 0)
-                        if (index == 0) {
-                          showLoadingAnimation(context);
-                        }
+                        showLoadingAnimation(context, index, role ?? '');
                         // You can add similar navigation logic for other items here
                       },
                       child: Container(
@@ -122,7 +212,7 @@ class _PartOneHomeState extends State<PartOneHome> {
             ),
             if (isExpanded)
               Positioned(
-                top: 400.0,
+                top: 500.0,
                 right: 130,
                 child: ElevatedButton(
                   style: ElevatedButton.styleFrom(

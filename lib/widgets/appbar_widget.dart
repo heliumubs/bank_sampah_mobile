@@ -1,3 +1,6 @@
+import 'dart:convert';
+
+import 'package:bkash_ui/baseurl.dart';
 import 'package:bkash_ui/utilis/curved_navbar_utilis.dart';
 import 'package:bkash_ui/widgets/banner_widget.dart';
 import 'package:bkash_ui/widgets/big_banner_widget.dart';
@@ -8,7 +11,9 @@ import 'package:bkash_ui/widgets/more_section_widget.dart';
 import 'package:bkash_ui/widgets/my_Bkash_widget.dart';
 import 'package:bkash_ui/widgets/part_one_section.dart';
 import 'package:bkash_ui/widgets/suggestion.widget.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'offeres_widget.dart';
 
@@ -27,6 +32,48 @@ class AppBarWidgetState extends State<AppBarWidget> {
   bool _isAnimation = false;
   bool _isBalanceShown = false;
   bool _isBalance = true;
+  String? nama = '';
+  String? id = '';
+  String? koin = '';
+  final dio = Dio();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _loadRole();
+  }
+
+  Future<void> _loadRole() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      String? userDataString = prefs.getString('userData');
+      if (userDataString != null) {
+        Map<String, dynamic> userData = jsonDecode(userDataString);
+        setState(() {
+          nama = userData['data']['name'];
+          id = userData['data']['id'].toString();
+        });
+      } else {
+        nama = '';
+      }
+    });
+    try {
+      print("${urllokal}koins/$id");
+      final response = await dio.get('${urllokal}koins/total/$id');
+      print("++++++++++++++++++++++++++++++++++");
+      print(response.data[0]['total_jumlah']);
+      print("++++++++++++++++++++++++++++++++++");
+      if (response.statusCode == 200) {
+        final data = response.data;
+        koin = data[0]['total_jumlah'] ?? "0";
+      } else {
+        print('Request failed with status: ${response.statusCode}');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   @override
@@ -62,7 +109,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                   children: [
                     //User Name
                     Text(
-                      ' Fajar Yuris',
+                      ' $nama',
                       style: TextStyle(
                           fontSize: 15,
                           color: Colors.white,
@@ -87,7 +134,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
                               AnimatedOpacity(
                                   opacity: _isBalanceShown ? 1 : 0,
                                   duration: Duration(milliseconds: 500),
-                                  child: Text('Rp . 200.000',
+                                  child: Text('Rp . $koin',
                                       style: TextStyle(
                                           color:
                                               Color.fromARGB(255, 11, 226, 65),
@@ -179,7 +226,7 @@ class AppBarWidgetState extends State<AppBarWidget> {
           // SuggestionWidget(),
           OffersWidget(),
           // MoreSectionWidtget(),
-          BigBannerWidget(),
+          // BigBannerWidget(),
           // LastSectionWidget(),
         ],
       ),

@@ -1,6 +1,9 @@
+import 'package:bkash_ui/pages/pengguna/pengguna_model.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 
-void main() => runApp(MyApp());
+// void main() => runApp(Pengguna_page());
 
 class Pengguna {
   final int idUser;
@@ -18,37 +21,35 @@ class Pengguna {
   });
 }
 
-class MyApp extends StatelessWidget {
-  final List<Pengguna> penggunaList = [
-    Pengguna(
-      idUser: 1,
-      alamat: 'Jl. Kebon Jeruk No.1',
-      telepon: '081234567890',
-      nomorIdentifikasi: 'ID123456',
-      jenisPengguna: 'Admin',
-    ),
-    Pengguna(
-      idUser: 2,
-      alamat: 'Jl. Sudirman No.2',
-      telepon: '081987654321',
-      nomorIdentifikasi: 'ID654321',
-      jenisPengguna: 'User',
-    ),
-    Pengguna(
-      idUser: 3,
-      alamat: 'Jl. Thamrin No.3',
-      telepon: '082123456789',
-      nomorIdentifikasi: 'ID789123',
-      jenisPengguna: 'User',
-    ),
-    Pengguna(
-      idUser: 4,
-      alamat: 'Jl. Gatot Subroto No.4',
-      telepon: '082198765432',
-      nomorIdentifikasi: 'ID321987',
-      jenisPengguna: 'Admin',
-    ),
-  ];
+class Pengguna_page extends StatefulWidget {
+  @override
+  State<Pengguna_page> createState() => _Pengguna_pageState();
+}
+
+class _Pengguna_pageState extends State<Pengguna_page> {
+  final Dio _dio = Dio();
+  List<UserModel> penggunaList = [];
+  Future<void> _fetchPengguna() async {
+    try {
+      final response = await _dio.get('http://localhost:8000/api/penggunas');
+      if (response.statusCode == 200) {
+        List<dynamic> data = response.data;
+        setState(() {
+          penggunaList = data.map((json) => UserModel.fromJson(json)).toList();
+        });
+      } else {
+        print('Gagal mengambil data Pengguna');
+      }
+    } catch (e) {
+      print('Error: $e');
+    }
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchPengguna();
+  }
 
   @override
   Widget build(BuildContext context) {

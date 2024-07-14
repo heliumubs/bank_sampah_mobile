@@ -141,6 +141,22 @@ var menuodelAdmin = [
       ),
     ],
   ),
+  Column(
+    children: [
+      Container(
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/wet.png'),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(1.0), // Menambahkan padding
+        child: Text(
+          'Pupuk',
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+    ],
+  ),
   // Column(
   //   children: [
   //     Container(
@@ -156,7 +172,7 @@ var menuodelUser = [
       Container(
         width: 100, // set the width you want
         height: 100, // set the height you want
-        child: Image.asset('assets/logo/koin.png'),
+        child: Image.asset('assets/logo/tentangsampah.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
@@ -171,12 +187,27 @@ var menuodelUser = [
       Container(
         width: 100, // set the width you want
         height: 100, // set the height you want
-        child: Image.asset('assets/logo/sampah.png'),
+        child: Image.asset('assets/logo/jenis_sampah.png'),
       ),
       Padding(
           padding: const EdgeInsets.all(1.0), // Menambahkan padding
           child: Text(
             'Jenis Sampah',
+            overflow: TextOverflow.ellipsis,
+          )),
+    ],
+  ),
+  Column(
+    children: [
+      Container(
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/sampah.png'),
+      ),
+      Padding(
+          padding: const EdgeInsets.all(1.0), // Menambahkan padding
+          child: Text(
+            'Sampah',
             overflow: TextOverflow.ellipsis,
           )),
     ],
@@ -252,6 +283,22 @@ var menuodelUser = [
         padding: const EdgeInsets.all(1.0), // Menambahkan padding
         child: Text(
           'Tentang Magot',
+          overflow: TextOverflow.ellipsis,
+        ),
+      ),
+    ],
+  ),
+  Column(
+    children: [
+      Container(
+        width: 100, // set the width you want
+        height: 100, // set the height you want
+        child: Image.asset('assets/logo/wet.png'),
+      ),
+      Padding(
+        padding: const EdgeInsets.all(1.0), // Menambahkan padding
+        child: Text(
+          'Pupuk',
           overflow: TextOverflow.ellipsis,
         ),
       ),
